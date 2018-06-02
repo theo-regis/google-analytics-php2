@@ -125,7 +125,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	// check allowed Tracking Ids
 	config := readConfig("ga-beacon/conf.json")
 	if !checkTrackingId(params[0], config.TrackingIds) {
-		http.Error(w, "Forbidden, read http://imailing.com.br/", 403)
+		
+		http.Error(w,  r.Header.Get("User-Agent"),403)
+		
+		//http.Error(w, "Forbidden, read http://imailing.com.br/", 403)
 		return
 	}
 

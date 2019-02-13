@@ -186,10 +186,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		link := query.Get("link")
 		link = strings.Replace(link,"[inter]","?",-1)
 		link = strings.Replace(link,"[ecom]","&",-1)
-		if strings.Contains(link, "CENTRALNATURA") {
-			link = strings.Replace(link,"CENTRALNATURA","NAINTERNET",-1)
-		}
-		
+		link = strings.Replace(link,"CENTRALNATURA","NAINTERNET",-1)
 		
 		if _, ok := query["adv"]; ok {
 
